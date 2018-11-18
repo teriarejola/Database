@@ -9,6 +9,6 @@ for each row
 BEGIN 
     UPDATE Item 
     SET Currently = new.Amount
-    WHERE Item_ID = new.Item_ID
+    WHERE ItemID = new.ItemID
 END;
 
