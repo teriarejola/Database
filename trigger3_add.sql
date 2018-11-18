@@ -9,7 +9,7 @@ for each row
 when exists (
     SELECT *
     FROM Item 
-    WHERE Item_ID = new.Item_ID AND 
+    WHERE ItemID = new.ItemID AND 
     new.Started >= new.Ends
 ) 
 
