@@ -29,6 +29,7 @@ CREATE TABLE Bids(
   Time DATETIME,
   Amount float,
   UNIQUE(Time),
+  UNIQUE(ItemID, UserID, Amount),
   FOREIGN KEY (ItemID) REFERENCES Item(ItemID);
   FOREIGN KEY (UserID) REFERENCES Users(UserID));
 
