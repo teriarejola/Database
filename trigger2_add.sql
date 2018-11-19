@@ -12,6 +12,6 @@ when exists (
   WHERE new.UserID = SellerID)
 
 BEGIN 
-SELECT raise (rollback, 'You may not bid on an item you are selling.')
+    SELECT raise (rollback, 'You may not bid on an item you are selling.')
 END;
 
