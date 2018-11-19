@@ -36,6 +36,7 @@ CREATE TABLE Bids(
 CREATE TABLE Category(
   ItemID int,
   Category string,
+  UNIQUE(ItemID,Category),
   FOREIGN KEY (ItemID) REFERENCES Item(ItemID));
 
 CREATE TABLE Time(
