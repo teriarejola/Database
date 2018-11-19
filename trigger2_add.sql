@@ -1,11 +1,12 @@
 // A user may not bid on an item he or she is also selling
 
-PRAGMA foreign_keys= ON;
+PRAGMA foreign_keys = ON;
 
 drop trigger if exists trigger2;
 
-before insert on bids;
-
+create trigger trigger2
+before insert ON bids
+for each row
 when exists (
   SELECT SellerID
   FROM Items
