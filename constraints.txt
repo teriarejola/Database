@@ -47,11 +47,13 @@
 - UNIQUE constraint on "UserID", "Amount", and "ItemID" attribute in the "Bids" table 
 - Added to "create.sql" file
 
-13. In every auction, the Number of Bids attribute corresponds to the actual number of bids for that particular item.
-Add a trigger to update the 'number_of_bids' in 'items' table after every insert to the 'bids' table for each item_id. This trigger is added as 'trigger4_add.sql' and 'trigger4_drop.sql'
+13. In every auction, the Number of Bids attribute corresponds to the actual number of bids for that particular item
+- Insert trigger (after) to update "Number_of_Bids" in the "Item" table following every insert on the "Bids" table for the same "ItemID"
+- Added to "trigger4_add.sql" and "trigger4_drop.sql" files
 
-14. Any new bid for a particular item must have a higher amount than any of the previous bids for that particular item.
-Add a trigger to block/reject bids that are lower than the max bid_amount in the bids table for that particular item_id.This trigger is added as 'trigger5_add.sql' and 'trigger5_drop.sql'.
+14. Any new bid for a particular item must have a higher amount than any of the previous bids for that particular item
+- Insert trigger (before) on the "Bids" table that blocks new bids ("Amount") that are less than the maximum bid ("Currently") for that particular "ItemID"
+- Added to "trigger5_add.sql" and "trigger5_drop.sql" files
 
 15. All new bids must be placed at the time which matches the current time of your AuctionBase system.
 Check whether bid_time is same as current time. This trigger is added as 'trigger6_add.sql' and 'trigger6_drop.sql'
