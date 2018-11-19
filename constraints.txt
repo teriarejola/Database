@@ -55,8 +55,11 @@
 - Insert trigger (before) on the "Bids" table that blocks new bids ("Amount") that are less than the maximum bid ("Currently") for that particular "ItemID"
 - Added to "trigger5_add.sql" and "trigger5_drop.sql" files
 
-15. All new bids must be placed at the time which matches the current time of your AuctionBase system.
-Check whether bid_time is same as current time. This trigger is added as 'trigger6_add.sql' and 'trigger6_drop.sql'
+15. All new bids must be placed at the time which matches the current time of your AuctionBase system
+- Insert tirffer (before) on the "Bids" table to check whether the bid time ("Time") matches the current time 
+- Added to "trigger6_add.sql" and "trigger6_drop.sql" files
 
 16. The current time of your AuctionBase system can only advance forward in time, not backward in time.
-Add a trigger to block updates (before) to CurrentTime table where time updated is less than already existing time in the table. This trigger is added as 'trigger7_add.sql' and 'trigger7_drop.sql'
+- Insert trigger (before) on the "Time" table that blocks time updates less than the current/existing system time
+- Added to "trigger7_add.sql" and "trigger7_drop.sql" files
+
