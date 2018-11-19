@@ -1,5 +1,5 @@
 #!/bin/bash
-python skeleton_parser.py items-*.json
+python parser.py items-*.json
 
 sort items.dat | uniq > items.dat
 sort users.dat | uniq > users.dat
