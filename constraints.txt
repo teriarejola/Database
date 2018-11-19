@@ -27,16 +27,22 @@
 - CHECK constraint on the "Item" table, making sure that the end time (ends) > start time (started)
 - Added to "create.sql" file
 
-8. The Current Price of an item must always match the Amount of the most recent bid for that item:
-Add a trigger to update the 'currently' attribute on table 'items' to the newly inserted 'bid_amount' after each insert on 'bids'. This trigger is added as 'trigger1_add.sql' and 'trigger1_drop.sql'. 
+8. The Current Price of an item must always match the Amount of the most recent bid for that item
+- Insert trigger (after) on the "Bids" table that updates the "Currrently" attribute on the "Item" table, every time a new "Amount" is inserted. 
+- Added to "trigger1_add.sql" and "trigger1_drop.sql"
 
-9. A user may not bid on an item he or she is also selling.
-Add a trigger to block insertion (before) on bids table where the user_id for the item_id is already listed as seller_id in table 'items' for the same item_id. This trigger is added as 'trigger2_add.sql' and 'trigger2_drop.sql'. 
+9. A user may not bid on an item he or she is also selling
+- Insert trigger (before) on the "Bids" table to check that the "UserID" in the "Bids" table is not equal to the "SellerID" of the same "ItemID" in the "Item" table
+- Added to "trigger2_add.sql" and "trigger2_drop.sql"
 
 10. No auction may have two bids at the exact same time.
-Added a constraint to ensure that 'time','item_id' in relation 'items' are unique. This constraint is added to 'create.sql' 
+- UNIQUE constraint on the "Time" and "ItemID" attributes in the "Bids" table
+- Added to "create.sql" file
 
 11. No auction may have a bid before its start time or after its end time.
+- 
+- Added to "trigger3_add.sql" and "trigger3_drop.sql"
+
 Add a trigger to block insertion (before) on bids table where time in bids table is before or after the 'started' and 'ends' in the 'items' table for same item_id.This trigger is added as 'trigger3_add.sql' and 'trigger3_drop.sql' 
 
 12. No user can make a bid of the same amount to the same item more than once.
