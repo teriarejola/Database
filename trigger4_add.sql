@@ -1,9 +1,9 @@
-PRAGMA foreign_keys = ON;
+// In every auction, the Number of Bids attribute corresponds to the actual number of bids for that particular item
 
+PRAGMA foreign_keys = ON;
 drop trigger if exists trigger4;
 
 create trigger trigger4
-
 after insert on bids 
 for each row 
 
