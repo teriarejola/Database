@@ -11,7 +11,7 @@ for each row
 when exists (
   SELECT *
 	FROM Time
-	WHERE new.Time <> Time 
+	WHERE new.CurrentTime <> CurrentTime
 )
 
 BEGIN 
