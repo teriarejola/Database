@@ -28,7 +28,7 @@ CREATE TABLE Bids(
   UserID varchar(300),
   Time DATETIME,
   Amount float,
-  UNIQUE(Time),
+  UNIQUE(ItemID, Time),
   UNIQUE(ItemID, UserID, Amount),
   FOREIGN KEY (ItemID) REFERENCES Item(ItemID);
   FOREIGN KEY (UserID) REFERENCES Users(UserID));
