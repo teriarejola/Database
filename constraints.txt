@@ -56,7 +56,7 @@
 - Added to "trigger5_add.sql" and "trigger5_drop.sql" files
 
 15. All new bids must be placed at the time which matches the current time of your AuctionBase system
-- Insert tirffer (before) on the "Bids" table to check whether the bid time ("Time") matches the current time 
+- Insert trigger (before) on the "Bids" table to check whether the bid time ("Time") matches the current time 
 - Added to "trigger6_add.sql" and "trigger6_drop.sql" files
 
 16. The current time of your AuctionBase system can only advance forward in time, not backward in time.
