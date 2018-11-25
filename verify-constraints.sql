@@ -1,16 +1,19 @@
-SELECT *
-FROM Users
-WHERE NOT IN (SELECT sellerID
-              FROM Item) AND
-              NOT IN (SELECT bidderID
-                      FROM Bids);
-
-SELECT *
+SELECT sellerID
 FROM Item
-WHERE NOT IN (SELECT ItemID
-              FROM Bids);
+WHERE NOT IN (SELECT userID
+              FROM Users);
               
-SELECT *
-FROM Item
+SELECT bidderID
+FROM Bids
+WHERE NOT IN (SELECT userID
+              FROM Users);
+
+SELECT ItemID
+FROM Bids
 WHERE NOT IN (SELECT ItemID
-              FROM Category);
+              FROM Items);
+              
+SELECT ItemID
+FROM Category
+WHERE NOT IN (SELECT ItemID
+              FROM Item);
