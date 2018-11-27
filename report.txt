@@ -1,0 +1,46 @@
+  We designed our database by adding 7 different triggers, 2 primary key constraints, 3 
+referential integrity constraints, 3 unique constraints and 1 check constraint to satisfy each of 
+the conditions provided by the assignment. The two primary key constraints cover the condition
+that all user IDs must be unique and all item IDs must be unique because of the nature of
+primary keys, which forces all attributes with that primary key to have different values. The three
+referential integrity constraints cover the conditions that seller and bidder IDs must also be 
+users, that all bids must corresponded to an actual item and that all items for a given category
+must exist. These foreign keys reference the user and item tables respectively and therefore
+make sure that the sellers, bidders and items in bids and categories all exist. The three unique
+constraints are placed on the time and Item ID attributes in the Bids table, the User ID, Amount 
+and and Item ID in the Bids table and the Item ID and Category attributes in the Category table.
+These unique constraints make sure that all no item is in a specific category more than once, no 
+bids can be placed at the same time and to make sure that no user can make a bid to the same
+item more than once. The check constraint is placed on the item table and makes sure that the
+end time is greater than the start time for all bids.
+  The first trigger makes sure that the currently is updated when a new amount is inserted 
+by changing currently after the new amount is inserted. The second trigger makes sure that the
+person selling the item is not bidding on it by checking that the bidder ID is not equal to seller ID
+before the command executes. The third trigger makes sure that no bids occur before the start
+time or after the end time by make sure that time in the bids table is before the end time and 
+after the start time before a new bid is inserted. The fourth trigger makes sure the number of
+bids is correct by updating number of bids in the item table after a bid is made. The fifth trigger
+makes sure that new bids are larger than old bids by checking that amount is greater than 
+currently before making the bid. The sixth trigger makes sure that the time the bid is placed 
+equals current time by checking to make sure that the bid time equals current time before the 
+bid is placed. The seventh trigger makes sure that time can only go forward by checking that the 
+new time is greater than the previous time before the new time is updated.
+  To check the first condition we must try to insert a user ID that was already in the system 
+and we should receive an error. To check the second condition we can use our 
+constraints-verify.sql program to make sure that all bidders and sellers exist as users. To check 
+the third condition we must try to insert an item that matches an ID already in the system. To 
+check the fourth condition we can use our constraints-verify.sql program to make sure that every 
+bid corresponds to an actual item. To check the fifth condition we can use our 
+constraints-verify.sql program to make sure that every item in a given category exists. To check 
+the sixth condition we must attempt to insert a non unique item ID into a category in which it 
+already exists. To check the seventh condition we must attempt to insert an end time that comes 
+before the start time. To check the eighth condition we must use our trigger.add and trigger.drop 
+files to make sure the condition holds. To check the ninth condition we must use our trigger.add 
+and trigger.drop files. To check the tenth condition we must attempt to insert two separate bids 
+at the same time. To check the eleventh condition we must use our trigger.add and trigger.drop 
+files. To check the twelfth condition we must attempt to bid on the same item more than once, 
+using the same amount. To check the thirteenth condition we must use our trigger.add and 
+trigger.drop files. To check the fourteenth condition we must use our trigger.add and trigger.drop 
+files. To check the fifteenth condition we must use our trigger.add and trigger.drop files. To check 
+the sixteenth condition we must use our trigger.add and trigger.drop files. After this we should 
+be sure that all constraints hold as implemented.
