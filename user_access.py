@@ -45,8 +45,8 @@ if userAction == search:
 elif userAction == ‘bid’:
     inputID = sys.argv[2]
 	  amount =sys.argv[3]
-	  c.execute(‘UPDATE {tbl} SET {curr} = {am} WHERE {id}={uid})
-	      format(tbl=items, curr=currently,am=amount,id=itemID, uid=inputID).
+	  c.execute(‘UPDATE {tbl} SET {curr} = {am} WHERE {id}={uid}).
+	      format(tbl=items, curr=currently,am=amount,id=itemID, uid=inputID)
     conn.commit()
     conn.close()
 	
@@ -55,6 +55,8 @@ elif userAction == ‘buy’:
     itemID = sys.argv[2]
     c.execute(‘‘UPDATE {tbl} SET {curr} = {am} WHERE {id}={uid}).
 	      format(tbl=items, curr=currently,am=maxPrice,id=itemID, uid=inputID)
+    conn.commit()
+    conn.close()
 
 else 
     print (“Error: Command not found.”)
