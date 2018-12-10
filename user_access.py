@@ -10,10 +10,6 @@ category = "categoryName"
 description = "description"
 minPrice = "first_bid"
 maxPrice = "currently"
-*open/closed status 
-
-
-sl
 
 # connect to the database
 conn = sqlite3.connect(AuctionBase.db)
