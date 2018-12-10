@@ -1,20 +1,20 @@
+// THE PROGRAM 
+
 In the user_access.py file, we designed a program that will takes user input from command lines and subsequently performs either a search, buy, or bid operation based on that input. We developed this interface using this input format: 
 
         python y_program.py search minPrice=100 maxPrice=1000 category=toys
 
 We were able to accomplish this by assigning the first argument input to the variable "userAction" and creating if-statements  for each possible input, specifically "search", "bid", and "buy". 
 
-For the search action, we created a for-loop with a range that begins with the argument following userAction and ends with the length of "sys.argv" since the total number of arguments is undefined. The for-loop takes each argument, splits it based on the "=" delimiter, and stores every separate condition into an array called “user_items”. From there, we check if the argument is a “condition” or a “table”. 
+For the search action, we created a for-loop with a range that begins with the argument following userAction and ends with the length of "sys.argv" since the total number of arguments is undefined. The for-loop takes each argument, splits it based on the "=" delimiter, and stores every separate condition into an array called “user_items”. From there, we check if the argument is a “condition” or a “table”, and assign them to respective variables. Afterwards, we execute a SELECT-FROM-WHERE search based on the conditions from the "user_items" array and the table from the "user_items" array. We store the query results into an array called "tables". We did this because we eventually wanted to join all the results together. Next, we use the counter to keep track of how many different queries we are inserting into the second array to join together. The for-loop is followed by a while-loop that combines all the results together. The while-loop begins from the last table entered and combines it with the table before that using the UNION operator. The same process is repeated until all the tables have been merged into one table that is stored at i[0]. 
 
 
+For the bid action, we assumed that the user will provide both the item ID and the amount she wants to bid on that item. We assign these arguments to "inputID" and "amount", respectively. Next, we execute an UPDATE statement using the variables, adding them to the "items" table, before executing the commit and close commands. 
 
-Essentially it starts from the last table entered and combines it with the table before that until it gets the last table until all the tables are in one giant table stored at i[0]. Thi
+We used the same logic for the buy action, where we assumed that the user will provide us with the item ID of the item she wants to buy. We store this in the "itemID" variable, which is used in the UPDATE statement. 
 
+If the user inputs something outside the scope of our format, the system will print the error message: "Error: Command not found". 
 
+// TESTING THE PROGRAM 
 
-
-Transactions, errors, and constraint-checking: 
-
-
-
-
+In our "test_script.sh" file, we listed a number of possible user commands to test our program. 
