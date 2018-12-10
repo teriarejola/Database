@@ -4,13 +4,12 @@ In the user_access.py file, we designed a program that will takes user input fro
 
 We were able to accomplish this by assigning the first argument input to the variable "userAction" and creating if-statements  for each possible input, specifically "search", "bid", and "buy". 
 
-For the search action, we created a for-loop with a range that begins with the argument following userAction and ends with the length of "sys.argv" since the total number of arguments is undefined. 
+For the search action, we created a for-loop with a range that begins with the argument following userAction and ends with the length of "sys.argv" since the total number of arguments is undefined. The for-loop takes each argument, splits it based on the "=" delimiter, and stores every separate condition into an array called “user_items”. From there, we check if the argument is a “condition” or a “table”. 
 
 
 
 Essentially it starts from the last table entered and combines it with the table before that until it gets the last table until all the tables are in one giant table stored at i[0]. Thi
 
-(I just took what Quinn did and flipped it so we wouldn’t risk running out of bounds)
 
 
 
